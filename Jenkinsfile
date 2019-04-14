@@ -26,10 +26,9 @@ pipeline {
         }
         stage('Deliver') { 
             steps {
-                sh './jenkins/scripts/deliver.sh' 
+                 agent { dockerfile true }
             }
         }
-     agent { dockerfile true }
 
     }
 }
