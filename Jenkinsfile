@@ -8,6 +8,9 @@ pipeline {
     options {
         skipStagesAfterUnstable()
     }
+    environment {
+        PATH = "$PATH:/usr/local/bin"
+    }
     stages {
         stage('Build') {
             steps {
@@ -26,7 +29,7 @@ pipeline {
         }
         stage('Deliver') { 
             steps {
-                sh '/usr/local/bin/docker info'
+                sh 'docker info'
                 sh './jenkins/scripts/deliver.sh' 
             }
         }
