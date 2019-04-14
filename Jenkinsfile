@@ -29,7 +29,6 @@ pipeline {
         }
         stage('Deliver') { 
             steps {
-                sh 'docker info'
                 sh './jenkins/scripts/deliver.sh' 
             }
         }
